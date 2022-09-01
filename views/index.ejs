@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs')%>
+</head>
+<body>
+    <div class="container">
+        <h1>Pokemon</h1>
+        <% for(let i=0; i < 8; i++) { %>
+            <img src="<%= allPokemon[i].img%>" alt="">
+       <% } %>
+
+    </div> 
+</body>
+</html>
