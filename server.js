@@ -2,9 +2,11 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const pokemon = require("./models/pokemon.js")
+const methodOverride = require("method-override")
 
 ///Middleware////
 app.use(express.urlencoded({ extended: false })); 
+app.use(methodOverride("_method"))
 
 ///ROUTES////
 
@@ -18,6 +20,10 @@ app.get("/pokemon", (req, res) => {
 //NEW///
 
 //DELETE///
+app.delete("/pokemon/:id", (req, res) => {
+    pokemon.splice(req.params.id, 1)
+    res.redirect("/pokemon")
+})
 
 ///UPDATE///
 
@@ -27,8 +33,6 @@ app.get("/pokemon", (req, res) => {
 
 ///SHOW///
 app.get("/pokemon/:id", (req, res) => {
-    console.log(req.params.id)
-    console.log(pokemon[req.params.id])
     res.render("show.ejs", {
         onePokemon: pokemon[req.params.id]
     })
