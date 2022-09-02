@@ -52,6 +52,12 @@ app.post("/pokemon", (req, res) => {
 })
 
 ///EDIT////
+app.get("/pokemon/:id/edit", (req, res) => {
+    res.render("edit.ejs", {
+        onePokemon: pokemon[req.params.id],
+        index: req.params.id
+    })
+})
 
 ///SHOW///
 app.get("/pokemon/:id", (req, res) => {
