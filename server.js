@@ -29,6 +29,22 @@ app.delete("/pokemon/:id", (req, res) => {
 })
 
 ///UPDATE///
+app.put("/pokemon/:id", (req, res) => {
+    const index = req.params.id
+    const pokeLad = req.body
+    const stats = {}
+    const type = []
+    pokemon[index].name = pokeLad.name
+    pokemon[index].img = pokeLad.img
+    type.push(pokeLad.type)
+    stats.hp = pokeLad.hp
+    stats.attack = pokeLad.attack
+    stats.defense = pokeLad.defense
+    stats.speed = pokeLad.speed
+    pokemon[index].stats = stats
+    pokemon[index].type = type
+    res.redirect("/pokemon")
+})
 
 ///CREATE///
 app.post("/pokemon", (req, res) => {
