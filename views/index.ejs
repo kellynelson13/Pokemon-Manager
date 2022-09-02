@@ -5,7 +5,10 @@
 </head>
 <body>
     <div class="container">
+        <a href="/pokemon/new">Create New Pokemon</a>
         <h1>Pokemon</h1>
+        
+
         <% for(let i=45; i < 52; i++) { %>
             <a href="/pokemon/<%=i%>"><img src="<%= allPokemon[i].img%>" ></a>
             <form action="/pokemon/<%=[i]%>?_method=DELETE" method="POST">

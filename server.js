@@ -18,6 +18,9 @@ app.get("/pokemon", (req, res) => {
 })
 
 //NEW///
+app.get("/pokemon/new", (req, res) => {
+    res.render("new.ejs")
+})
 
 //DELETE///
 app.delete("/pokemon/:id", (req, res) => {
@@ -28,6 +31,23 @@ app.delete("/pokemon/:id", (req, res) => {
 ///UPDATE///
 
 ///CREATE///
+app.post("/pokemon", (req, res) => {
+    //console.log(req.body)
+    const pokeDude = req.body
+    const newPoke = {}
+    const stats = {}
+    newPoke.name = pokeDude.name
+    newPoke.img = pokeDude.img
+    newPoke.type = pokeDude.type
+    stats.hp = pokeDude.hp
+    stats.attack = pokeDude.attack
+    stats.defense = pokeDude.defense
+    stats.speed = pokeDude.speed
+    newPoke.stats = stats
+    console.log(newPoke)
+    pokemon.push(newPoke)
+    res.redirect("/pokemon")
+})
 
 ///EDIT////
 
