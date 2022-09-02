@@ -36,16 +36,18 @@ app.post("/pokemon", (req, res) => {
     const pokeDude = req.body
     const newPoke = {}
     const stats = {}
+    const type = []
     newPoke.name = pokeDude.name
     newPoke.img = pokeDude.img
-    newPoke.type = pokeDude.type
+    type.push(pokeDude.type)
     stats.hp = pokeDude.hp
     stats.attack = pokeDude.attack
     stats.defense = pokeDude.defense
     stats.speed = pokeDude.speed
     newPoke.stats = stats
+    newPoke.type = type
     console.log(newPoke)
-    pokemon.push(newPoke)
+    pokemon.unshift(newPoke)
     res.redirect("/pokemon")
 })
 
